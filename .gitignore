@@ -15,6 +15,10 @@ dist
 dist-ssr
 *.local
 
+# Large media (use external hosting or LFS)
+*.mp4
+public/uplode/9676.mp4
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
