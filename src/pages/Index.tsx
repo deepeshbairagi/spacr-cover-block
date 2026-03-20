@@ -777,7 +777,32 @@ const Index = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="p-6 md:p-8">
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="space-y-4">
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      This external form can't be embedded on this site (iframe blocked by the provider). Use the button below to open it.
+                    </p>
+                    <Button
+                      type="button"
+                      size="lg"
+                      onClick={() =>
+                        (window.location.href =
+                          "https://blurstone.m.frappe.cloud/lead-form-for-website-/new")
+                      }
+                      className="w-full bg-primary hover:bg-primary/90 text-black border-none"
+                    >
+                      Open Contact Form
+                    </Button>
+                    <a
+                      href="https://blurstone.m.frappe.cloud/lead-form-for-website-/new"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-center text-yellow-400 underline text-sm"
+                    >
+                      Or open in new tab
+                    </a>
+                  </div>
+
+                  <form onSubmit={handleSubmit} className="space-y-6 hidden">
                     <div>
                       <Label htmlFor="name" className="text-gray-700 font-medium">Full Name *</Label>
                       <Input

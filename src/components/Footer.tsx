@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
 
 const Footer = () => {
@@ -28,7 +29,9 @@ const Footer = () => {
               <a href="#why-choose-us" onClick={(e) => { e.preventDefault(); const el = document.getElementById('why-choose-us'); el?.scrollIntoView({ behavior: 'smooth' }); }} className="block text-gray-400 hover:text-yellow-400 transition-colors cursor-pointer">Why Choose Us</a>
               <a href="#industries-served" onClick={(e) => { e.preventDefault(); const el = document.getElementById('industries-served'); el?.scrollIntoView({ behavior: 'smooth' }); }} className="block text-gray-400 hover:text-yellow-400 transition-colors cursor-pointer">Industries Served</a>
               <a href="#quality" onClick={(e) => { e.preventDefault(); const el = document.getElementById('quality'); el?.scrollIntoView({ behavior: 'smooth' }); }} className="block text-gray-400 hover:text-yellow-400 transition-colors cursor-pointer">Quality Control</a>
-              <a href="#contact" onClick={(e) => { e.preventDefault(); const el = document.getElementById('contact'); el?.scrollIntoView({ behavior: 'smooth' }); }} className="block text-gray-400 hover:text-yellow-400 transition-colors cursor-pointer">Contact Us</a>
+              <Link to="/contact" className="block text-gray-400 hover:text-yellow-400 transition-colors cursor-pointer">
+                Contact Us
+              </Link>
             </div>
           </div>
 

@@ -22,6 +22,13 @@ const Navigation = () => {
   };
 
   const handleNavigation = (id: string) => {
+    if (id === "contact") {
+      // The external provider blocks iframe embedding, so we route to /contact where
+      // the page redirects users to the external form.
+      navigate("/contact");
+      return;
+    }
+
     // If on a product detail page, navigate to home with scroll parameter
     if (location.pathname.startsWith('/products/')) {
       navigate(`/?scrollTo=${id}`);

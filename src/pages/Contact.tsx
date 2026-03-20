@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,7 @@ import Layout from "@/components/Layout";
 
 const Contact = () => {
   const { toast } = useToast();
+  const externalLeadFormUrl = "https://blurstone.m.frappe.cloud/lead-form-for-website-/new";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,6 +21,12 @@ const Contact = () => {
     inquiryType: "",
     message: ""
   });
+
+  useEffect(() => {
+    // The external provider blocks iframe embedding (X-Frame-Options: SAMEORIGIN),
+    // so redirect users to ensure the form is visible.
+    window.location.replace(externalLeadFormUrl);
+  }, [externalLeadFormUrl]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -141,8 +148,21 @@ const Contact = () => {
                       Fill out the form below and we'll respond within 24 hours
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="p-6">
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                  <CardContent className="p-6 md:p-8">
+                    <div className="space-y-4">
+                      <p className="text-gray-700 text-sm">
+                        Redirecting to the contact form...
+                      </p>
+                      <a
+                        href={externalLeadFormUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-yellow-400 underline text-sm"
+                      >
+                        If not redirected, click here to open the form
+                      </a>
+                    </div>
+                    <form onSubmit={handleSubmit} className="space-y-6 hidden">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="name" className="text-gray-700 font-medium">Full Name *</Label>
