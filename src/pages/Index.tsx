@@ -778,9 +778,7 @@ const Index = () => {
                 </CardHeader>
                 <CardContent className="p-6 md:p-8">
                   <div className="space-y-4">
-                    <p className="text-gray-700 text-sm leading-relaxed">
-                      This external form can't be embedded on this site (iframe blocked by the provider). Use the button below to open it.
-                    </p>
+                  
                     <Button
                       type="button"
                       size="lg"
