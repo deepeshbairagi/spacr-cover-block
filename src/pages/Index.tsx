@@ -785,21 +785,16 @@ const Index = () => {
                       type="button"
                       size="lg"
                       onClick={() =>
-                        (window.location.href =
-                          "https://blurstone.m.frappe.cloud/lead-form-for-website-/new")
+                        window.open(
+                          "https://blurstone.m.frappe.cloud/lead-form-for-website-/new",
+                          "_blank",
+                          "noopener,noreferrer"
+                        )
                       }
                       className="w-full bg-primary hover:bg-primary/90 text-black border-none"
                     >
                       Open Contact Form
                     </Button>
-                    <a
-                      href="https://blurstone.m.frappe.cloud/lead-form-for-website-/new"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-center text-yellow-400 underline text-sm"
-                    >
-                      Or open in new tab
-                    </a>
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-6 hidden">

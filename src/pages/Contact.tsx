@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,12 +21,6 @@ const Contact = () => {
     inquiryType: "",
     message: ""
   });
-
-  useEffect(() => {
-    // The external provider blocks iframe embedding (X-Frame-Options: SAMEORIGIN),
-    // so redirect users to ensure the form is visible.
-    window.location.replace(externalLeadFormUrl);
-  }, [externalLeadFormUrl]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -150,17 +144,19 @@ const Contact = () => {
                   </CardHeader>
                   <CardContent className="p-6 md:p-8">
                     <div className="space-y-4">
-                      <p className="text-gray-700 text-sm">
-                        Redirecting to the contact form...
+                      <p className="text-gray-700 text-sm leading-relaxed">
+                        This external form can&apos;t be embedded on this site (iframe blocked by the provider). Use the button below to open it in a new tab.
                       </p>
-                      <a
-                        href={externalLeadFormUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-yellow-400 underline text-sm"
+                      <Button
+                        type="button"
+                        size="lg"
+                        onClick={() =>
+                          window.open(externalLeadFormUrl, "_blank", "noopener,noreferrer")
+                        }
+                        className="w-full bg-primary hover:bg-primary/90 text-black border-none"
                       >
-                        If not redirected, click here to open the form
-                      </a>
+                        Open Contact Form
+                      </Button>
                     </div>
                     <form onSubmit={handleSubmit} className="space-y-6 hidden">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
